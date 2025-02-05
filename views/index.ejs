@@ -13,7 +13,7 @@
                 <h3><%= messages[index].user %></h3>
                 <p><%= messages[index].text %></p>
                 <p><%= messages[index].added %></p>
-                <form action="/messageDetails" method="POST" >
+                <form action="/messageDetails/<%= messages[index].user %>/<%= index %>" method="POST" >
                     <input type="number" name="index" value='<%= index %>' hidden>
                     <button type="submit">Open Message Details</button>
                 </form>
