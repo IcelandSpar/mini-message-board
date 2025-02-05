@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
     <title><%= title %></title>
 </head>
-<body>
+<body class="messageBoardPage">
     <h1><%= title %></h1>
-    <ul>
+    <ul class="indexUnorderList">
         <% messages.map((item, index) => { %>
-            <li>
-                <h3><%= messages[index].user %></h3>
+            <li class="messageContainer">
+                <h3 class="messageUser"><%= messages[index].user %></h3>
                 <p><%= messages[index].text %></p>
                 <p><%= messages[index].added %></p>
                 <form action="/messageDetails/<%= messages[index].user %>/<%= index %>" method="POST" >
-                    <input type="number" name="index" value='<%= index %>' hidden>
-                    <button type="submit">Open Message Details</button>
+
+                    <button type="submit" class="openMessageDetails">Open Message Details</button>
                 </form>
             </li>
       <%  }) %>
     </ul>
-    <a href="http://localhost:3000/new"><button>Send New Message</button></a>
+    <a href="http://localhost:3000/new"><button class="sendNewMessageBtn">Send New Message</button></a>
 </body>
 </html>
