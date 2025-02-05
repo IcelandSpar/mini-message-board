@@ -9,8 +9,17 @@ const newRouter = require('./routes/newRouter');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+
 app.use('/', indexRouter);
-app.use('/newMessage', newRouter);
+app.use('/new', newRouter);
+
+app.post('/new', (req, res) => {
+    console.log(req.body);
+})
+
 
 
 
