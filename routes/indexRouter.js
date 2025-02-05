@@ -10,11 +10,15 @@ const messages = [
     {
         text: 'Hello World',
         user: 'Charles',
-        aded: new Date(),
+        added: new Date(),
     }
 ];
 
-indexRouter.get('/', (req, res) => res.send('index router'));
+indexRouter.get('/', (req, res) => {
+    res.render('index', {
+        title: 'Mini Messageboard',
+        messages: messages})
+});
 
 module.exports = indexRouter;
 
