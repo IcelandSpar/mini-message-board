@@ -20,6 +20,10 @@ indexRouter.get('/', (req, res) => {
         messages: messages})
 });
 
+indexRouter.post('/messageDetails', (req, res) => {
+    res.render('messageDetails', {messages: messages, index: parseInt(req.body.index)})
+})
+
 indexRouter.post('/new', (req, res) => {
     messages.push({
         user: req.body.authorName,
