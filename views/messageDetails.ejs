@@ -1,3 +1,20 @@
-<h3><%= messages[index].user %></h3>
-<p><%= messages[index].text %></p>
-<p><%= messages[index].added %></p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <section class="indexUnorderList centerMessage">
+        <h1 class="individualMessageHeader"><%= (messages[index].user).charAt((messages[index].user).length - 1) == 's' ? messages[index].user + "'" : messages[index].user + "'s" %> Message</h1>
+        <div class="messageContainer">
+            <h3><%= messages[index].user %></h3>
+            <p><%= messages[index].text %></p>
+            <p><%= messages[index].added %></p>
+            <a href="http://localhost:3000">Return to message board</a>
+        </div>
+        
+    </section>
+</body>
+</html>

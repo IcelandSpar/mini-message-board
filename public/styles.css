@@ -59,5 +59,14 @@
     font-size: 1.5rem;
 }
 
+.centerMessage {
+    margin: 2rem auto;
+}
+
+.individualMessageHeader {
+    font-size: 2rem;
+    text-align: center;
+}
+
 
 

@@ -10,12 +10,19 @@
     <h1 class="formTitle"><%= title %></h1>
     <form action="/new" method="POST" class="newMessageForm">
 
+        <% const submitForm = (e) => {%>
+            e.preventDefault();
+            document.querySelector('.newMessageForm').submit();
+            <% } %>
+
             <label for="authorName">Author's Name: </label>
             <input type="text" name="authorName" id="authorName" required>
 
 
             <label for="message">Message: </label>
             <textarea name="message" id="message" required></textarea>
+
+
  
         <button class="formBtn">Submit</button>
     </form>

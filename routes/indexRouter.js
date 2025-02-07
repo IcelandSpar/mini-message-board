@@ -1,19 +1,22 @@
 const { Router } = require('express');
 const indexRouter = Router();
-const { format } = require('date-fns');
+const { formatInTimeZone } = require('date-fns-tz');
+
 
 const messages = [
     {
         text: 'Hi there!',
         user: 'Amando',
-        added: format(new Date(), 'MM/dd/yyyy k:mm:ss a'),
+        added: formatInTimeZone(new Date(), 'US/Central', 'MM/dd/yyyy h:mm:ss a'),
     },
     {
         text: 'Hello World',
         user: 'Charles',
-        added: format(new Date(), 'MM/dd/yyyy k:mm:ss a'),
+        added: formatInTimeZone(new Date(), 'US/Central', 'MM/dd/yyyy h:mm:ss a'),
     }
 ];
+
+
 
 indexRouter.get('/', (req, res) => {
     res.render('index', {
@@ -29,7 +32,7 @@ indexRouter.post('/new', (req, res) => {
     messages.push({
         user: req.body.authorName,
         text: req.body.message,
-        added: format(new Date(), 'MM/dd/yyyy k:mm:ss a'),
+        added: formatInTimeZone(new Date(), 'US/Central', 'MM/dd/yyyy h:mm:ss a'),
     })
 
     res.redirect('/');
