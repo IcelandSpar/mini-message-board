@@ -15,7 +15,7 @@
             <h3><%= messages[index].user %></h3>
             <p><%= messages[index].text %></p>
             <p><%= messages[index].added %></p>
-            <a href="http://localhost:3000">Return to message board</a>
+            <a href="http://localhost:<%= process.env.PORT %>">Return to message board</a>
         </div>
         
     </section>
