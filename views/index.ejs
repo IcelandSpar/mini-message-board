@@ -13,15 +13,16 @@
     <h1><%= title %></h1>
     <ul class="indexUnorderList">
         <% messages.map((item, index) => { %>
-            <li class="messageContainer">
-                <h3 class="messageUser"><%= messages[index].username %></h3>
-                <p><%= messages[index].message %></p>
-                <p><%= messages[index].date %></p>
-                <form action="/messageDetails/<%= messages[index].username %>/<%= index %>" method="GET" >
-
-                    <button type="submit" class="openMessageDetails">Open Message Details</button>
-                </form>
-            </li>
+            <a class="reset-a" href="/messageDetails/<%= messages[index].username %>/<%= index %>">
+                <li class="messageContainer">
+                    <h3 class="usernameHeader"><%= messages[index].username %></h3>
+                    <pre class="messageUser"><%= messages[index].message %></pre>
+                    <p><%= messages[index].date %></p>
+                    <form action="/messageDetails/<%= messages[index].username %>/<%= index %>" method="GET" >
+                        <button type="submit" class="openMessageDetails">Open Message Details</button>
+                    </form>
+                </li>
+            </a>
       <%  }) %>
     </ul>
     <a href="/new"><button class="sendNewMessageBtn">Send New Message</button></a>

@@ -30,10 +30,21 @@ a:visited {
   border-bottom: 2px solid gray;
   padding: 1rem 0;
   font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.messageContainer:hover {
+    border-bottom: 2px solid rgb(175, 175, 175);
+}
+
+.usernameHeader {
+    font-size: 1.7rem;
+    text-decoration: underline;
+    font-weight: 800;
 }
 
 .messageUser {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .openMessageDetails {
@@ -90,3 +101,29 @@ input:-webkit-autofill::first-line {
   font-size: 2rem;
   text-align: center;
 }
+
+pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+  }
+
+  button {
+    cursor: pointer;
+    border-radius: 15px;
+    padding: .5rem;
+    border: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 900;
+  }
+
+  .reset-a, .reset-a:hover, .reset-a:visited, .reset-a:focus, .reset-a:active  {
+    text-decoration: none;
+    color: inherit;
+    outline: 0;
+    cursor: auto;
+  }
+

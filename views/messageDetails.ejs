@@ -12,8 +12,8 @@
     <section class="indexUnorderList centerMessage">
         <h1 class="individualMessageHeader"><%= (messages[index].username).charAt((messages[index].username).length - 1) == 's' ? messages[index].username + "'" : messages[index].username + "'s" %> Message</h1>
         <div class="messageContainer">
-            <h3><%= messages[index].username %></h3>
-            <p><%= messages[index].message %></p>
+            <h3 class="usernameHeader"><%= messages[index].username %></h3>
+            <pre><%= messages[index].message %></pre>
             <p><%= messages[index].date %></p>
             <a href="/">Return to message board</a>
         </div>
