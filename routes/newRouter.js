@@ -1,10 +1,9 @@
 const { Router } = require('express');
 const newRouter = Router();
+const { getNewMessageForm } = require('../controllers/messageBoardController');
 
 
-newRouter.get('/', (req, res) => {
-    res.render('form', {title: 'New Message Form'});
-});
+newRouter.get('/', getNewMessageForm);
 
 
 
