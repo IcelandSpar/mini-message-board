@@ -10,7 +10,7 @@ const { getIndexRoute, getMessageDetails, postNewMessage } = require('../control
 
 indexRouter.get('/', getIndexRoute);
 
-indexRouter.post('/messageDetails/:user/:index', getMessageDetails);
+indexRouter.get('/messageDetails/:user/:index', getMessageDetails);
 
 indexRouter.post('/new', postNewMessage);
 

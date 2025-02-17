@@ -14,10 +14,10 @@
     <ul class="indexUnorderList">
         <% messages.map((item, index) => { %>
             <li class="messageContainer">
-                <h3 class="messageUser"><%= messages[index].user %></h3>
-                <p><%= messages[index].text %></p>
-                <p><%= messages[index].added %></p>
-                <form action="/messageDetails/<%= messages[index].user %>/<%= index %>" method="POST" >
+                <h3 class="messageUser"><%= messages[index].username %></h3>
+                <p><%= messages[index].message %></p>
+                <p><%= messages[index].date %></p>
+                <form action="/messageDetails/<%= messages[index].username %>/<%= index %>" method="GET" >
 
                     <button type="submit" class="openMessageDetails">Open Message Details</button>
                 </form>

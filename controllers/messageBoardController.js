@@ -1,4 +1,6 @@
+require('dotenv').config();
 const { formatInTimeZone } = require('date-fns-tz');
+const { getMessageBoard, insertPost } = require('../db/queries');
 
 const messages = [
     {
@@ -13,14 +15,16 @@ const messages = [
     }
 ];
 
-const getIndexRoute = (req, res) => {
+const getIndexRoute = async (req, res) => {
+    const messageBoardContent = await getMessageBoard();
     res.render('index', {
         title: 'Mini Messageboard',
-        messages: messages})
+        messages: messageBoardContent})
 };
 
-const getMessageDetails = (req, res) => {
-    res.render('messageDetails', {messages: messages, index: parseInt(req.params.index)})
+const getMessageDetails = async (req, res) => {
+    const messageBoardContent = await getMessageBoard();
+    res.render('messageDetails', {messages: messageBoardContent, index: parseInt(req.params.index)})
 };
 
 
@@ -30,13 +34,9 @@ const getNewMessageForm = (req, res) => {
     res.render('form', {title: 'New Message Form'});
 };
 
-const postNewMessage = (req, res) => {
-    messages.push({
-        user: req.body.authorName,
-        text: req.body.message,
-        added: formatInTimeZone(new Date(), 'US/Central', 'MM/dd/yyyy h:mm:ss a'),
-    })
-
+const postNewMessage = async (req, res) => {
+    const postDateAndTimeFormatted = formatInTimeZone(new Date(), 'US/Central', 'MM/dd/yyyy h:mm:ss a');
+    await insertPost([req.body.authorName, req.body.message, postDateAndTimeFormatted]);
     res.redirect('/');
 
 };
